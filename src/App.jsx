@@ -16,6 +16,7 @@ const App = () => {
           <div className="header-content">
             <Link to="/" className="logo">
               <span className="logo-icon">📈</span>
+              {/* <span className="logo-icon"></span> */}
               StockGroww
             </Link>
             
@@ -43,6 +44,4 @@ const App = () => {
     </Router>
   );
 };
-
-
 export default App;
