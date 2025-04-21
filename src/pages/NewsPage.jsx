@@ -7,7 +7,7 @@ const NewsPage = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
   const { symbol } = useParams();
-  const NEWS_API_KEY = '32e29c8a2bb94269824b0057c8693fdf';
+  const NEWS_API_KEY = '68dff322675b4e0e80a48f87e41db9f8';
 
   useEffect(() => {
     // Add to recently viewed stocks
@@ -23,6 +23,9 @@ const NewsPage = () => {
         const response = await axios.get(
           `https://newsapi.org/v2/everything?q=${symbol} stock market&apiKey=${NEWS_API_KEY}`
         );
+        console.log(response)
+
+        
         const articles = response.data.articles.slice(0, 10);
         setNews(articles);
         

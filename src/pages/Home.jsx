@@ -7,16 +7,16 @@ const Home = () => {
   const [stocks, setStocks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-
+  const apiKey = "ZWYIQDSLZXZH8R3Y";
   const handleSearch = async () => {
     if (!searchQuery.trim()) return;
     setLoading(true);
     setError('');
     try {
       const response = await axios.get(
-        `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${searchQuery}&apikey=YOUR_API_KEY`
+        `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${searchQuery}&apikey=your_api_key`,
       );
-      console.log(response)
+    
       const matches = response.data.bestMatches || [];
       const newStocks = matches.map(match => ({
         symbol: match['1. symbol'],
@@ -25,7 +25,7 @@ const Home = () => {
         change: (Math.random() * 10) - 5
       }));
       console.log(matches)
-      
+
       setStocks(newStocks);
       localStorage.setItem('recentStocks', JSON.stringify(newStocks));
     } catch (err) {

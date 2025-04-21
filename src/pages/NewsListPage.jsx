@@ -5,7 +5,7 @@ const NewsListPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
-  const NEWS_API_KEY = '32e29c8a2bb94269824b0057c8693fdf';
+  const NEWS_API_KEY = '68dff322675b4e0e80a48f87e41db9f8';
 
   const handleSearch = async () => {
     if (!searchQuery.trim()) return;

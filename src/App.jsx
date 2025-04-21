@@ -7,7 +7,10 @@ import About from './pages/About';
 import './App.css';
 
 const App = () => {
-  return (
+
+
+  
+  return ( 
     <Router>
       <div className="groww-style">
         <header className="groww-header">
