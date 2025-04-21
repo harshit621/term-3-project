@@ -4,12 +4,11 @@ import Home from './pages/Home';
 import NewsPage from './pages/NewsPage';
 import NewsListPage from './pages/NewsListPage';
 import About from './pages/About';
+import Review from './pages/Review';
+import ContactForm from './pages/ContactForm';
 import './App.css';
 
 const App = () => {
-
-
-  
   return ( 
     <Router>
       <div className="groww-style">
@@ -23,6 +22,8 @@ const App = () => {
             <nav className="main-nav">
               <Link to="/" className="nav-link">Home</Link>
               <Link to="/news" className="nav-link">News</Link>
+              <Link to="/reviews" className="nav-link">Reviews</Link>
+              <Link to="/contact" className="nav-link">Contact</Link>
               <Link to="/about" className="nav-link">About</Link>
             </nav>
           </div>
@@ -33,6 +34,8 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/news" element={<NewsListPage />} />
             <Route path="/news/:symbol" element={<NewsPage />} />
+            <Route path="/reviews" element={<Review />} />
+            <Route path="/contact" element={<ContactForm />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </main>
