@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// this is for the message after submitting the form
 
 const Review = () => {
   const [formData, setFormData] = useState({
