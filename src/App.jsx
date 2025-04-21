@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
-import NewsPage from './pages/NewsPage';
-import NewsListPage from './pages/NewsListPage';
 import About from './pages/About';
 import Review from './pages/Review';
 import ContactForm from './pages/ContactForm';
@@ -16,13 +14,11 @@ const App = () => {
           <div className="header-content">
             <Link to="/" className="logo">
               <span className="logo-icon">📈</span>
-              {/* <span className="logo-icon"></span> */}
               StockGroww
             </Link>
             
             <nav className="main-nav">
               <Link to="/" className="nav-link">Home</Link>
-              <Link to="/news" className="nav-link">News</Link>
               <Link to="/reviews" className="nav-link">Reviews</Link>
               <Link to="/contact" className="nav-link">Contact</Link>
               <Link to="/about" className="nav-link">About</Link>
@@ -33,8 +29,6 @@ const App = () => {
         <main className="page-container">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/news" element={<NewsListPage />} />
-            <Route path="/news/:symbol" element={<NewsPage />} />
             <Route path="/reviews" element={<Review />} />
             <Route path="/contact" element={<ContactForm />} />
             <Route path="/about" element={<About />} />
@@ -44,4 +38,5 @@ const App = () => {
     </Router>
   );
 };
+
 export default App;
