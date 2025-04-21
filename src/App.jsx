@@ -4,7 +4,6 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Review from './pages/Review';
 import ContactForm from './pages/ContactForm';
-import PriceChart from './pages/PriceChart';
 import './App.css';
 
 const App = () => {
@@ -20,7 +19,6 @@ const App = () => {
             
             <nav className="main-nav">
               <Link to="/" className="nav-link">Home</Link>
-              <Link to="/price-chart" className="nav-link">Price Chart</Link>
               <Link to="/reviews" className="nav-link">Reviews</Link>
               <Link to="/contact" className="nav-link">Contact</Link>
               <Link to="/about" className="nav-link">About</Link>
@@ -31,7 +29,6 @@ const App = () => {
         <main className="page-container">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/price-chart" element={<PriceChart />} />
             <Route path="/reviews" element={<Review />} />
             <Route path="/contact" element={<ContactForm />} />
             <Route path="/about" element={<About />} />
