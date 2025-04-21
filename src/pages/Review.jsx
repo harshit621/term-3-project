@@ -4,7 +4,7 @@ const Review = () => {
   const reviews = [
     {
       id: 1,
-      name: "John Smith",
+      name: "Ram Smith",
       rating: 5,
       date: "2024-01-15",
       comment: "StockGroww has revolutionized how I track my investments. The interface is intuitive and the real-time updates are fantastic!",
@@ -12,15 +12,15 @@ const Review = () => {
     },
     {
       id: 2,
-      name: "Sarah Johnson",
-      rating: 4,
+      name: "Sarah Khan",
+      rating: 5,
       date: "2024-01-14",
       comment: "Great platform for stock analysis. Would love to see more technical indicators in future updates.",
       avatar: "👩‍💼"
     },
     {
       id: 3,
-      name: "Mike Chen",
+      name: "Megha Chen",
       rating: 5,
       date: "2024-01-13",
       comment: "The news integration and stock alerts are incredibly helpful. Best stock tracking app I've used!",
