@@ -908,3 +908,22 @@ button:active {
   background: #3a3a3a;
   color: #00d09c;
 }
+
+.stock-detail {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.chart-container {
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+  height: 400px;
+}
+
+.stock-chart {
+  height: 100%;
+  width: 100%;
+}
