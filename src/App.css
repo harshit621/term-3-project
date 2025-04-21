@@ -104,43 +104,58 @@ body {
 }
 
 .search-container {
-  max-width: 600px;
-  margin: 0 auto;
+  margin-bottom: 20px;
   display: flex;
-  gap: 1rem;
+  justify-content: center;
 }
 
-.search-input {
+.search-container form {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.stock-search {
   flex: 1;
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #333;
-  background: var(--card-bg);
-  color: var(--text-primary);
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  padding: 12px;
+  border-radius: 6px;
+  background: #2a2a2a;
+  color: #fff;
+  border: 1px solid #3a3a3a;
+  font-size: 16px;
 }
 
-.search-input:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(0, 208, 156, 0.2);
-}
-
-.search-btn {
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
+.search-button {
+  padding: 0 24px;
+  background: #00d09c;
+  color: #fff;
   border: none;
-  background: var(--primary);
-  color: #000;
-  font-weight: 600;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  font-weight: 600;
 }
 
-.search-btn:hover {
+.search-button:hover {
   background: #00b386;
-  transform: translateY(-1px);
+}
+
+.empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #888;
+  font-size: 1.1rem;
+}
+
+.loading-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #00d09c;
+  font-size: 1.1rem;
 }
 
 .stocks-grid {
@@ -620,6 +635,39 @@ button[type="submit"]:hover {
 
 small {
   color: #999;
+}
+
+.price-chart-container {
+  padding: 20px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  margin: 20px;
+}
+
+.chart-controls {
+  margin-bottom: 20px;
+}
+
+.stock-selector {
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: #2a2a2a;
+  color: #fff;
+  border: 1px solid #3a3a3a;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.chart-view {
+  height: 400px;
+  background: #1a1a1a;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.stock-selector:focus {
+  outline: none;
+  border-color: #00d09c;
 }
 
 @media (max-width: 768px) {

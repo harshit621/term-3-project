@@ -41,39 +41,46 @@ const StockChart = ({ symbol }) => {
     }
 
     const basePrice = 100 + Math.random() * 50;
-    const timestamps = Array.from({ length: 30 }, (_, i) => {
+    const timestamps = Array.from({ length: 50 }, (_, i) => {
       const date = new Date();
-      date.setMinutes(date.getMinutes() - (29 - i));
+      date.setMinutes(date.getMinutes() - (49 - i));
       return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
     });
 
-    const prices = Array.from({ length: 30 }, (_, i) => {
-      const volatility = 0.02; // 2% volatility
-      const time = i / 29;
-      const trend = Math.sin(time * Math.PI) * 10;
-      const noise = (Math.random() - 0.5) * volatility * basePrice;
-      return basePrice + trend + noise;
-    });
+    const prices = (() => {
+      const result = [];
+      let lastPrice = basePrice;
+      const volatility = 0.008; // Reduced volatility for more realistic movements
+      const trendStrength = 0.3;
+      
+      for (let i = 0; i < 50; i++) {
+        // Create market momentum
+        const momentum = Math.sin(i / 10) * trendStrength;
+        // Random walk with momentum
+        const change = (Math.random() - 0.5) * volatility * lastPrice + momentum;
+        lastPrice = lastPrice + change;
+        result.push(Math.max(lastPrice, 1)); // Prevent negative prices
+      }
+      return result;
+    })();
 
     const newChartData = {
       labels: timestamps,
-      datasets: [
-        {
-          label: `${symbol} Price`,
-          data: prices,
-          borderColor: '#00d09c',
-          backgroundColor: 'rgba(0, 208, 156, 0.1)',
-          borderWidth: 2,
-          tension: 0.4,
-          fill: true,
-          pointRadius: 1,
-          pointHoverRadius: 5,
-          pointBackgroundColor: '#00d09c',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: '#00d09c',
-          pointHoverBorderWidth: 2,
-        },
-      ],
+      datasets: [{
+        label: `${symbol} Price`,
+        data: prices,
+        borderColor: '#00d09c',
+        backgroundColor: 'rgba(0, 208, 156, 0.1)',
+        borderWidth: 2,
+        tension: 0.3,
+        fill: true,
+        pointRadius: 0,
+        pointHoverRadius: 4,
+        pointBackgroundColor: '#00d09c',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: '#00d09c',
+        pointHoverBorderWidth: 2,
+      }],
     };
 
     // Store in localStorage with timestamp
@@ -97,11 +104,7 @@ const StockChart = ({ symbol }) => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'top',
-        labels: {
-          color: '#fff',
-          font: { size: 12, weight: '600' }
-        }
+        display: false
       },
       title: {
         display: true,
@@ -125,21 +128,26 @@ const StockChart = ({ symbol }) => {
     scales: {
       x: {
         grid: {
-          display: false,
-          color: 'rgba(255, 255, 255, 0.1)'
+          display: false
         },
         ticks: {
           color: '#888',
-          maxTicksLimit: 8
+          maxTicksLimit: 6,
+          font: {
+            size: 11
+          }
         }
       },
       y: {
         grid: {
-          color: 'rgba(255, 255, 255, 0.1)'
+          color: 'rgba(255, 255, 255, 0.05)'
         },
         ticks: {
           color: '#888',
-          callback: (value) => `$${value.toFixed(2)}`
+          callback: (value) => `$${value.toFixed(2)}`,
+          font: {
+            size: 11
+          }
         }
       }
     },
@@ -148,7 +156,7 @@ const StockChart = ({ symbol }) => {
       mode: 'index'
     },
     animation: {
-      duration: 1000
+      duration: 750
     }
   };
 
