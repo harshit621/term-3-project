@@ -17,7 +17,7 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send the data to a server
+    
     console.log('Form submitted:', formData);
     setSubmitted(true);
     setFormData({ name: '', email: '', message: '' });
